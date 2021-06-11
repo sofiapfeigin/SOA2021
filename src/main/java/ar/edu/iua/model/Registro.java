@@ -30,11 +30,11 @@ public class Registro {
 	@Column
 	private String identificador;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_categoria")
 	private Categoria c;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_subcategoria")
 	private SubCategoria sc;
 
