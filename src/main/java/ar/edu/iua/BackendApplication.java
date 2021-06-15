@@ -28,7 +28,7 @@ public class BackendApplication extends SpringBootServletInitializer implements 
 	private PasswordEncoder passwordEncoder;
 	public void run(String... args) throws Exception {
 		
-		log.info("123 codificado es: {}", passwordEncoder.encode("123"));
+		log.info("HOLA ESTO ES UNA PRUEBAAAAAAAAAA");
 	}
 }
 
