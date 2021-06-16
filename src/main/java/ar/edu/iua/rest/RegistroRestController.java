@@ -39,6 +39,7 @@ public class RegistroRestController {
 			responseHeaders.set("location", Constantes.URL_REGISTROS + "/" + registro.getId());
 			return new ResponseEntity<String>(responseHeaders, HttpStatus.CREATED);
 		} catch (BusinessException e) {
+			System.out.print("estoy en rest "+e);
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
