@@ -34,10 +34,8 @@ public class RegistroBusiness implements IRegistroBusiness{
 			r.setId(registro.getId());
 			r.setFechaHora(registro.getFechaHora());
 			s=registro.getRawData();
-			System.out.print("estoy antes de JSON");
 			JSONArray a=new JSONArray(s);
 			s=a.toString();
-			System.out.print(s);
 			r.setRawData(s);
 			r.setIdentificador(registro.getIdentificador());
 			r.setC(categoriaService.asegurarCategoria(registro.getC()));
@@ -45,7 +43,6 @@ public class RegistroBusiness implements IRegistroBusiness{
 			
 			return registroDAO.save(registro);
 		} catch (Exception e) {
-			System.out.print("estoy en el error de add "+e);
 			throw new BusinessException(e);
 		}
 	}
@@ -58,8 +55,6 @@ public class RegistroBusiness implements IRegistroBusiness{
 		s=registro.getRawData();
 		JSONObject a=new JSONObject(s);
 		s=a.toString();
-		System.out.print(s);
-		
 		registroNuevo.setId(registroViejo.getId());
 		registroNuevo.setFechaHora(registro.getFechaHora());
 		registroNuevo.setRawData(s);
@@ -75,14 +70,12 @@ public class RegistroBusiness implements IRegistroBusiness{
 	@Override
 	public Registro cargar(Registro registro) throws BusinessException {
 		try {
-			System.out.print("ESTOY EN CARGAR");
 			List<Registro> l=registroDAO.findAll();
 			if(l.isEmpty()==true)
 				return add(registro);
 			else
 				return update(registro);
 		} catch (Exception e) {
-			System.out.print("ENTRO A CATCH");
 			throw new BusinessException(e);
 		}
 	}
@@ -102,7 +95,6 @@ public class RegistroBusiness implements IRegistroBusiness{
 	@Override
 	public List<Registro> list() throws BusinessException {
 		try {
-			System.out.print("ESTOY EN LIST");
 			return registroDAO.findAll();
 		} catch (Exception e) {
 			throw new BusinessException(e);
