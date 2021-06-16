@@ -34,6 +34,7 @@ public class RegistroBusiness implements IRegistroBusiness{
 			r.setId(registro.getId());
 			r.setFechaHora(registro.getFechaHora());
 			s=registro.getRawData();
+			System.out.print("estoy antes de JSON");
 			JSONArray a=new JSONArray(s);
 			s=a.toString();
 			System.out.print(s);
@@ -44,6 +45,7 @@ public class RegistroBusiness implements IRegistroBusiness{
 			
 			return registroDAO.save(registro);
 		} catch (Exception e) {
+			System.out.print("estoy en el error de add "+e);
 			throw new BusinessException(e);
 		}
 	}
